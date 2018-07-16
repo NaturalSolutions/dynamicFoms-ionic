@@ -1,0 +1,58 @@
+<!---
+
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
+-->
+
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <fieldset>
+            <legend>Champs obligatoires</legend>
+            <div *ngFor="let field of fields" class="form-row">
+                <!--<div *ngSwitchCase="field.required==true">-->
+
+                <div *ngIf="field.required==true">
+                    <app-field [field]="field" [form]="form"></app-field>
+                </div>
+
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>Champs facultatifs</legend>
+            <div *ngFor="let field of fields" class="form-row">
+                <!--<div *ngSwitchCase="field.required==true">-->
+
+                <div *ngIf="field.required==''">
+                    <!--<app-field [field]="field" [form]="form"></app-field>-->
+                </div>
+
+            </div>
+
+        </fieldset>
+
+
+
+        <div class="form-row">
+            <!--<button type="submit" [disabled]="!form.valid">Save</button>-->
+        </div>
+    </form>
+
+    <div *ngIf="payLoad" class="form-row">
+        <strong>Saved the following values</strong><br>{{payLoad}}
+    </div>
+</div>

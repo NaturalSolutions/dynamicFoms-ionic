@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+    <label [attr.for]="field.key">{{field.label}}</label>
+
+    <div [ngSwitch]="field.controlType">
+
+        <input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type">
+        <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type">
+        <select [id]="field.key" *ngSwitchCase="'select'" [formControlName]="field.key">
+        <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+
+    </div>
+
+    <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
+</div>
+
+
+
+
+<!--
+<div [formGroup]="form">
+    <ion-item>
+        <ion-label floating>{{field.label}}</ion-label>
+      
+        <div [ngSwitch]="field.controlType">
+
+            <ion-input *ngSwitchCase="'text'" [formControlName]="field.key" [id]="field.key" [type]="field.type"></ion-input>
+
+
+            <input *ngSwitchCase="'number'" [formControlName]="field.key" [id]="field.key" [type]="field.type">
+            <select [id]="field.key" *ngSwitchCase="'select'" [formControlName]="field.key">
+        <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+
+        </div>
+
+        <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
+    </ion-item>
+</div>  -->
+
+<!--
+<ion-item *ngSwitchCase="'text'">
+    <ion-label floating>Effectif</ion-label>
+    <ion-input type="number" formControlName="effectif"></ion-input>
+</ion-item>  -->
