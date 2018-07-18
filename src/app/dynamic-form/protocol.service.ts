@@ -12,13 +12,11 @@ import { SelectField } from './field-select';
 @Injectable()
 export class FieldService {
 
-  data:any;
-  fields: FieldBase<any>[];
-
   constructor(public http: Http) {
+   
     //this.loadProtocols()
   }
-  getFields() {
+  /*getFields() {
 
     let fields: FieldBase<any>[] = [
 
@@ -55,7 +53,7 @@ export class FieldService {
     ];
 
     return fields.sort((a, b) => a.order - b.order);
-  }
+  }*/
 
   loadProtocols(){
     return new Promise(resolve =>{
@@ -69,43 +67,38 @@ export class FieldService {
     });
   }
   generateProtocols(data){
+    let fieldsTab: FieldBase<any>[] = [];
 
     let firstProto = data[0];
     let fields = firstProto.fields;
     fields.forEach(function (field) {
-      console.log(field);
       let fieldtype = field.type ; 
       let formFied ; 
       switch(fieldtype) {
         case "text":
         formFied = new TextField({
-          key: fieldtype.key,
-          label: fieldtype.label,
-          order: fieldtype.order,
-          required : fieldtype.required
         });
             break;
         case "select":
         formFied = new SelectField({
-          key: fieldtype.key,
-          label: fieldtype.label,
-          options: fieldtype.options ,
-          order: fieldtype.order,
-          required : fieldtype.required
+          options: field.options 
         });
             break;
         case "number":
-            formFied = new TextField({
-              key: fieldtype.key,
-              label: fieldtype.label,
-              order: fieldtype.order,
-              required : fieldtype.required
+            formFied = new NumberField({
             });
             break;
     }
-    this.fields.push(formFied);
+    formFied.key = field.key;
+    formFied.label = field.label;
+    formFied.order = field.order;
+    formFied.required = field.required;
+
+
+
+    fieldsTab.push(formFied);
     }); 
-    return this.fields.sort((a, b) => a.order - b.order);
+    return fieldsTab.sort((a, b) => a.order - b.order);
 
   }
 }

@@ -19,7 +19,8 @@
 -->
 
 <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+    <form *ngIf="form" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+
         <fieldset>
             <legend>Champs obligatoires</legend>
             <div *ngFor="let field of fields" class="form-row">
@@ -50,9 +51,14 @@
         <div class="form-row">
             <button ion-button type="submit" [disabled]="!form.valid">Save</button>
         </div>
+
     </form>
 
     <div *ngIf="payLoad" class="form-row">
         <strong>Saved the following values</strong><br>{{payLoad}}
     </div>
 </div>
+
+<ng-template #loading>
+    Loading ...
+</ng-template>

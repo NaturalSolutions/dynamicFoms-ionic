@@ -38,7 +38,8 @@ import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.com
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FieldService
+    FieldService,
+    HttpModule
   ]
 })
 export class AppModule {}
