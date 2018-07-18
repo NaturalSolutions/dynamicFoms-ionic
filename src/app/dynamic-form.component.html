@@ -36,7 +36,7 @@
             <legend>Champs facultatifs</legend>
             <div *ngFor="let field of fields" class="form-row">
                 <!--<div *ngSwitchCase="field.required==true">-->
-                
+
                 <div *ngIf="!field.required">
                     <app-field [field]="field" [form]="form"></app-field>
                 </div>
@@ -48,7 +48,7 @@
 
 
         <div class="form-row">
-            <!--<button type="submit" [disabled]="!form.valid">Save</button>-->
+            <button ion-button type="submit" [disabled]="!form.valid">Save</button>
         </div>
     </form>
 
