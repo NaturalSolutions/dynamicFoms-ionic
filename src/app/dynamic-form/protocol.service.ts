@@ -1,4 +1,6 @@
 import { Injectable }       from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { FieldBase }     from './field-base';
 import { TextField }  from './field-text';
@@ -10,8 +12,12 @@ import { SelectField } from './field-select';
 @Injectable()
 export class FieldService {
 
-  // TODO: get from a remote source of question metadata
-  // TODO: make asynchronous
+  data:any;
+  fields: FieldBase<any>[];
+
+  constructor(public http: Http) {
+    //this.loadProtocols()
+  }
   getFields() {
 
     let fields: FieldBase<any>[] = [
@@ -49,5 +55,57 @@ export class FieldService {
     ];
 
     return fields.sort((a, b) => a.order - b.order);
+  }
+
+  loadProtocols(){
+    return new Promise(resolve =>{
+      this.http.get('assets/data/protocols.json')
+      .map(res => res.json())
+      .subscribe(data => {
+        let fields = this.generateProtocols(data);
+        resolve(fields);
+      });
+
+    });
+  }
+  generateProtocols(data){
+
+    let firstProto = data[0];
+    let fields = firstProto.fields;
+    fields.forEach(function (field) {
+      console.log(field);
+      let fieldtype = field.type ; 
+      let formFied ; 
+      switch(fieldtype) {
+        case "text":
+        formFied = new TextField({
+          key: fieldtype.key,
+          label: fieldtype.label,
+          order: fieldtype.order,
+          required : fieldtype.required
+        });
+            break;
+        case "select":
+        formFied = new SelectField({
+          key: fieldtype.key,
+          label: fieldtype.label,
+          options: fieldtype.options ,
+          order: fieldtype.order,
+          required : fieldtype.required
+        });
+            break;
+        case "number":
+            formFied = new TextField({
+              key: fieldtype.key,
+              label: fieldtype.label,
+              order: fieldtype.order,
+              required : fieldtype.required
+            });
+            break;
+    }
+    this.fields.push(formFied);
+    }); 
+    return this.fields.sort((a, b) => a.order - b.order);
+
   }
 }

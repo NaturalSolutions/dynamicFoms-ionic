@@ -19,7 +19,7 @@
 -->
 
 <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
         <fieldset>
             <legend>Champs obligatoires</legend>
             <div *ngFor="let field of fields" class="form-row">

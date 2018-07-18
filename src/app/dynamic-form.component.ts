@@ -14,17 +14,23 @@ import { FieldService } from './dynamic-form/protocol.service';
 export class DynamicFormComponent implements OnInit {
 
   //@Input() fields: FieldBase<any>[] = [];
-  fields: FieldBase<any>[] = [];
+  fields: any;
   form: FormGroup;
   payLoad = '';
 
 
   constructor(private qcs: FieldControlService, service : FieldService) {
-    this.fields = service.getFields();
+    service.loadProtocols().then(data => {
+      this.fields = data  ; 
+      this.form = this.qcs.toFormGroup(this.fields);
+
+     })
+
     }
 
   ngOnInit() {
-    this.form = this.qcs.toFormGroup(this.fields);
+   // this.form = this.qcs.toFormGroup(this.fields);
+   
   }
 
   onSubmit() {

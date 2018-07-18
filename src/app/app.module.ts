@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {HttpModule} from '@angular/http';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ReactiveFormsModule }          from '@angular/forms';
@@ -23,6 +25,7 @@ import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.com
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ReactiveFormsModule,
+    HttpModule
    // DynamicFormComponent,
    // DynamicFormFieldComponent 
   ],
