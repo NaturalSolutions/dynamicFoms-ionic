@@ -9,13 +9,15 @@ import { HomePage } from '../pages/home/home';
 
 import { DynamicFormComponent }         from './dynamic-form.component';
 import { FieldService } from './dynamic-form/protocol.service';
+import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.component';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DynamicFormComponent
+    DynamicFormComponent,
+    DynamicFormFieldComponent
   ],
   imports: [
     BrowserModule,

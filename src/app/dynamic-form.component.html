@@ -36,9 +36,9 @@
             <legend>Champs facultatifs</legend>
             <div *ngFor="let field of fields" class="form-row">
                 <!--<div *ngSwitchCase="field.required==true">-->
-
-                <div *ngIf="field.required==''">
-                    <!--<app-field [field]="field" [form]="form"></app-field>-->
+                
+                <div *ngIf="!field.required">
+                    <app-field [field]="field" [form]="form"></app-field>
                 </div>
 
             </div>
