@@ -84,6 +84,7 @@ export class CompleteTaxaService {
             /*} else {
                 
                   _that.sqlite.create({
+                    name: 'mydb.db',
                     location: 'default'
                   })
                     .then((db: SQLiteObject) => { 
