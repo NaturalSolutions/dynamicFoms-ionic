@@ -6,14 +6,6 @@
         "image": "./assets/icones_protocoles/chiro.png",
         "id": 1,
         "fields": [{
-                "type": "text",
-                "key": "taxon",
-                "label": "Espèce",
-                "value": "",
-                "required": true,
-                "order": 1
-            },
-            {
                 "type": "number",
                 "key": "nombre",
                 "label": "Nombre",
@@ -31,7 +23,43 @@
                 ],
                 "order": 3,
                 "required": false
+            },
+            {
+                "type": "autocomplete",
+                "key": "nom_verna",
+                "label": "Nom vernaculaire",
+                "required": true,
+                "order": 1
+            },
+            {
+                "type": "text",
+                "key": "remarque",
+                "label": "Remarque",
+                "value": "",
+                "required": false,
+                "order": 4
+            },
+            {
+                "type": "checkbox",
+                "key": "estime",
+                "label": "Estimé",
+                "value": false,
+                "required": false,
+                "order": 5
+            },
+            {
+                "type": "radio",
+                "key": "validated",
+                "label": "Validé",
+                "options": [
+                    { "key": "yes", "value": "oui" },
+                    { "key": "none", "value": "non" }
+                ],
+                "order": 6,
+                "required": false
             }
+
+
         ]
     }
 

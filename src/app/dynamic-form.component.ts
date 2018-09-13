@@ -1,7 +1,6 @@
-import { Component, Input, OnInit }  from '@angular/core';
+import { Component,  OnInit }  from '@angular/core';
 import { FormGroup }                 from '@angular/forms';
 
-import { FieldBase }              from './dynamic-form/field-base';
 import { FieldControlService }    from './dynamic-form/field-control.service';
 import { FieldService } from './dynamic-form/protocol.service';
 

@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { ReactiveFormsModule }          from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {PopoverAutocompPage} from'./dynamic-form//popoverAutocompPage'
 
 import { DynamicFormComponent }         from './dynamic-form.component';
 import { FieldService } from './dynamic-form/protocol.service';
@@ -19,7 +20,8 @@ import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.com
     MyApp,
     HomePage,
     DynamicFormComponent,
-    DynamicFormFieldComponent
+    DynamicFormFieldComponent,
+    PopoverAutocompPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { DynamicFormFieldComponent } from './dynamic-form/dynamic-form-field.com
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PopoverAutocompPage
   ],
   providers: [
     StatusBar,

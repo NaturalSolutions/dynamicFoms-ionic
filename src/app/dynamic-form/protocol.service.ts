@@ -6,6 +6,9 @@ import { FieldBase }     from './field-base';
 import { TextField }  from './field-text';
 import { NumberField }  from './field-number';
 import { SelectField } from './field-select';
+import { AutocompField} from './field-autocomplete';
+import {CheckboxField} from './field-checkbox';
+import {RadioField} from './field-radio';
 
 
 
@@ -14,46 +17,7 @@ export class FieldService {
 
   constructor(public http: Http) {
    
-    //this.loadProtocols()
   }
-  /*getFields() {
-
-    let fields: FieldBase<any>[] = [
-
-      new SelectField({
-        key: 'sexe',
-        label: 'Sexe',
-        options: [
-          {key: 'male',  value: 'male'},
-          {key: 'femelle',  value: 'femelle'},
-          {key: 'juvenile',   value: 'juvenile'}
-        ],
-        order: 3
-      }),
-
-      new TextField({
-        key: 'taxon',
-        label: 'Espèce',
-        value: '',
-        required: true,
-        order: 1
-      }),
-
-      new TextField({
-        key: 'remarque',
-        label: 'remarque',
-        order: 2
-      }),
-      new NumberField({
-        key: 'nombre',
-        label: 'nombre',
-        type: 'number',
-        order: 3
-      })
-    ];
-
-    return fields.sort((a, b) => a.order - b.order);
-  }*/
 
   loadProtocols(){
     return new Promise(resolve =>{
@@ -86,6 +50,18 @@ export class FieldService {
             break;
         case "number":
             formFied = new NumberField({
+            });
+            break;
+        case "checkbox" :
+            formFied = new CheckboxField({
+             });
+            break;
+        case "radio" :
+            formFied = new RadioField({
+            });
+          break;
+        case "autocomplete" :
+            formFied = new AutocompField({
             });
             break;
     }
