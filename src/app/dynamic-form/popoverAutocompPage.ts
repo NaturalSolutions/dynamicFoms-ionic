@@ -12,7 +12,9 @@ import { CompleteTaxaService } from '../../services/autocomplete-service';
   <ion-navbar color="primary">
     <ion-title>
       Recherche d'espèce
+      <ion-icon name="close-circle" item-right (click)="onCancel($event)"></ion-icon>
     </ion-title>
+    
   </ion-navbar>
 
   <ion-toolbar no-border-top>
@@ -122,7 +124,11 @@ export class PopoverAutocompPage {
     this.setFilteredItems();
 }
 onCancel(e){
-   // this.searching = true;
+    this.viewCtrl.dismiss({
+        nom_verna : '',
+        taxon : '',
+        taxref_id : null
+      });
 }
 getSelected(e){
   let verna = e.label
