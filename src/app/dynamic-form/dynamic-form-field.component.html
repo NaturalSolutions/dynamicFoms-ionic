@@ -10,22 +10,43 @@
 
         <ion-input *ngSwitchCase="'autocomplete'" disabled="true" [formControlName]="field.key" (click)="presentPopoverAutocomp('avifaune')"></ion-input>
 
-        <ion-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.key"></ion-checkbox>
+        <ion-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.key" value="field.value"></ion-checkbox>
 
+        <!-- marche pas à l'interieur d'un item-->
+        <!--<ion-list radio-group *ngSwitchCase="'radio'" [formControlName]="field.key">
 
-        <ion-list radio-group *ngSwitchCase="'radio'">
-
-            <ion-item *ngFor="let opt of field.options">
+            <div *ngFor="let opt of field.options">
 
                 <ion-label>{{opt.value}}</ion-label>
-                <ion-radio [value]="opt.key" [formControlName]="field.key"></ion-radio>
-            </ion-item>
-        </ion-list>
+                <ion-radio value="opt.value"></ion-radio>
+            </div>
+        </ion-list> -->
 
 
 
         <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
     </ion-item>
+
+
+    <ion-content *ngIf="field.controlType == 'radio'" class="contentRadio">
+        <ion-list radio-group [formControlName]="field.key">
+            <ion-item *ngFor="let item of field.options">
+                <ion-label>{{item.value}}</ion-label>
+                <ion-radio value="{{item.value}}">
+                </ion-radio>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+
+
+
+
+
+
+
+
+
 
 
 

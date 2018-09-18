@@ -57,6 +57,17 @@
                 ],
                 "order": 6,
                 "required": false
+            },
+            {
+                "type": "radio",
+                "key": "test_radio",
+                "label": "test radio",
+                "options": [
+                    { "key": "yes", "value": "oui" },
+                    { "key": "none", "value": "non" }
+                ],
+                "order": 7,
+                "required": false
             }
 
 

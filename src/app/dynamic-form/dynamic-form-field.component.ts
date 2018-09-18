@@ -7,7 +7,9 @@ import { FieldBase }     from './field-base';
 
 @Component({
   selector: 'app-field',
-  templateUrl: './dynamic-form-field.component.html'
+  templateUrl: './dynamic-form-field.component.html',
+  //styleUrls: ['../dynamic-form-field.component.css']
+  styles: ['.contentRadio { height: 100px;}']
 })
 export class DynamicFormFieldComponent {
   @Input() field: FieldBase<any>;

@@ -58,6 +58,7 @@ export class FieldService {
             break;
         case "radio" :
             formFied = new RadioField({
+              options: field.options 
             });
           break;
         case "autocomplete" :
@@ -69,6 +70,7 @@ export class FieldService {
     formFied.label = field.label;
     formFied.order = field.order;
     formFied.required = field.required;
+    formFied.options = field.options || '';
 
 
 
