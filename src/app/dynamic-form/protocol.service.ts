@@ -9,6 +9,7 @@ import { SelectField } from './field-select';
 import { AutocompField} from './field-autocomplete';
 import {CheckboxField} from './field-checkbox';
 import {RadioField} from './field-radio';
+import {DateField} from './field-date';
 
 
 
@@ -65,6 +66,10 @@ export class FieldService {
             formFied = new AutocompField({
             });
             break;
+        case "date" :
+        formFied = new DateField({
+        });
+        break;
     }
     formFied.key = field.key;
     formFied.label = field.label;

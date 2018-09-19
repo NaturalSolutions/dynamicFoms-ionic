@@ -68,7 +68,15 @@
                 ],
                 "order": 7,
                 "required": false
+            },
+            {
+                "type": "date",
+                "key": "date",
+                "label": "Date",
+                "required": true,
+                "order": 8
             }
+
 
 
         ]

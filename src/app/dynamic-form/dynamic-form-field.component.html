@@ -12,6 +12,8 @@
 
         <ion-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.key" value="field.value"></ion-checkbox>
 
+        <ion-datetime *ngSwitchCase="'date'" displayFormat="DD/MM/YYYY HH:mm" [formControlName]="field.key"></ion-datetime>
+
         <!-- marche pas à l'interieur d'un item-->
         <!--<ion-list radio-group *ngSwitchCase="'radio'" [formControlName]="field.key">
 
